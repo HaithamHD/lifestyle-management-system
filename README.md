@@ -156,10 +156,3 @@ powershell -ExecutionPolicy Bypass -File .\VERIFY-PROJECT.ps1
 php artisan route:list --except-vendor
 php artisan test
 ```
-
-## ملاحظات
-
-- لا تشغّل ملفات Controllers منفردة من VS Code.
-- نفّذ أوامر `php artisan` من المجلد الذي يحتوي على `artisan`.
-- أبقِ نافذة السيرفر مفتوحة أثناء استخدام المشروع.
-- لا ترفع `.env` أو `.runtime-php` إلى GitHub.
