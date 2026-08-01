@@ -1,4 +1,4 @@
-# Lifestyle Management System — Original UI Final Edition v2
+# Lifestyle Management System 
 
 مشروع Laravel 12 متكامل يجمع الـBackend REST API مع الواجهات الأصلية، مع مشغّل Windows يقوم تلقائيًا بتجهيز إضافات PHP المطلوبة للمشروع دون الحاجة إلى تعديل ملف `php.ini` العام يدويًا.
 
