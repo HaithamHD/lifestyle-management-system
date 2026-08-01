@@ -1,114 +1,147 @@
-# Lifestyle Management System 
+# Lifestyle Management System
 
-مشروع Laravel 12 متكامل يجمع الـBackend REST API مع الواجهات الأصلية، مع مشغّل Windows يقوم تلقائيًا بتجهيز إضافات PHP المطلوبة للمشروع دون الحاجة إلى تعديل ملف `php.ini` العام يدويًا.
+A comprehensive **Laravel 12** web application that integrates a RESTful API with a modern native user interface. The project includes an automated Windows launcher that configures all required PHP extensions locally, eliminating the need to modify the global `php.ini` configuration.
 
-## الوظائف الموجودة
+---
 
-- Register / Login باستخدام Laravel Sanctum.
-- User Dashboard وإحصائيات أسبوعية.
-- Tasks: إنشاء، عرض، تعديل، حذف، وإكمال المهمة.
-- Habits: إنشاء العادات وتسجيل الإنجاز اليومي.
-- Journal entries.
-- Mood tracking.
-- Notifications.
-- Profile management.
-- Admin Dashboard وإدارة حالة المستخدمين.
-- Repository, Dependency Injection, Observer, Strategy, Factory, MVC.
+# Features
 
-## التشغيل السريع على Windows
+The system provides a complete lifestyle management platform with the following functionality:
 
-1. فك ضغط الملف كاملًا.
-2. افتح المجلد الذي يحتوي مباشرة على `artisan`.
-3. شغّل:
+* User registration and authentication using **Laravel Sanctum**.
+* Personalized user dashboard with weekly statistics and activity summaries.
+* Task management (Create, Read, Update, Delete, and Complete tasks).
+* Habit management with daily progress tracking.
+* Journal entry management.
+* Mood tracking and history.
+* In-app notification system.
+* User profile management.
+* Administrative dashboard for monitoring and managing user accounts.
+* Clean software architecture utilizing:
+
+  * Repository Pattern
+  * Dependency Injection
+  * Observer Pattern
+  * Strategy Pattern
+  * Factory Pattern
+  * MVC Architecture
+
+---
+
+# Quick Start (Windows)
+
+1. Extract the project archive.
+2. Open the project directory containing the `artisan` file.
+3. Run:
 
 ```text
 START-LIFESTYLE.bat
 ```
 
-المشغّل يقوم تلقائيًا بما يلي:
+The launcher automatically performs the following tasks:
 
-- العثور على PHP أو XAMPP.
-- إنشاء ملف PHP محلي داخل `.runtime-php/php.ini`.
-- تفعيل `mbstring`, `openssl`, `pdo_sqlite`, `sqlite3`, و`fileinfo` للمشروع فقط.
-- تجهيز SQLite.
-- مسح Laravel cache.
-- تشغيل migrations.
-- اختيار منفذ متاح وفتح المتصفح.
+* Detects the installed PHP or XAMPP environment.
+* Creates a project-specific PHP configuration inside `.runtime-php/php.ini`.
+* Enables the required PHP extensions:
 
-هذا الحل لا يغيّر إعداد PHP العام على الجهاز. المجلد `.runtime-php` يُنشأ محليًا داخل المشروع.
+  * `mbstring`
+  * `openssl`
+  * `pdo_sqlite`
+  * `sqlite3`
+  * `fileinfo`
+* Initializes the SQLite database.
+* Clears all Laravel caches.
+* Executes database migrations.
+* Automatically selects an available port and launches the application in the default web browser.
 
-## سبب خطأ mbstring في النسخة السابقة
+This process affects only the project environment and does **not** modify the system-wide PHP configuration.
 
-الرسالة:
+---
+
+# Resolving the mbstring Extension Issue
+
+Previous versions could produce the following error:
 
 ```text
 PHP extension mbstring is disabled
 ```
 
-تعني أن PHP الذي تم تشغيل المشروع به لم يكن يحمل إضافة `mbstring` من ملف `php.ini` النشط. النسخة الحالية تعالج ذلك تلقائيًا بإنشاء إعداد PHP محلي للمشروع وتفعيل الإضافات الموجودة في مجلد `ext` الخاص بـPHP/XAMPP.
+This occurred because the active PHP installation was not loading the `mbstring` extension.
 
-## الحسابات التجريبية
+The current release resolves this automatically by generating a dedicated project-specific PHP configuration and enabling all required extensions from the local PHP or XAMPP installation.
 
-### User
+---
+
+# Demo Accounts
+
+## Standard User
 
 ```text
 Email: user@lifestyle.test
 Password: Password123!
 ```
 
-### Admin
+## Administrator
 
 ```text
 Email: admin@lifestyle.test
 Password: Admin123!
 ```
 
-بعد تسجيل الدخول بحساب Admin افتح:
+After signing in as an administrator, open:
 
 ```text
 http://127.0.0.1:8001/admin/dashboard
 ```
 
-قد يستخدم المشغّل المنفذ `8002` أو `8003` عندما يكون `8001` مستخدمًا؛ اتبع الرابط الذي يظهر في نافذة التشغيل.
+If port **8001** is unavailable, the launcher will automatically use another available port (such as **8002** or **8003**) and display the correct URL.
 
-## تشخيص PHP
+---
 
-عند استمرار مشكلة PHP شغّل:
+# PHP Diagnostics
+
+If PHP-related issues persist, execute:
 
 ```text
 DIAGNOSE-PHP.bat
 ```
 
-سيعرض:
+The diagnostic tool displays:
 
-- مسار `php.exe` المستخدم.
-- ملف `php.ini` العام.
-- ملف `php.ini` المحلي للمشروع.
-- الإضافات المحملة.
+* Active PHP executable path
+* Global `php.ini` location
+* Project-specific `php.ini`
+* Loaded PHP extensions
 
-## قاعدة البيانات
+---
 
-الوضع الافتراضي يستخدم SQLite جاهزة:
+# Database
+
+The project uses SQLite by default.
+
+Database location:
 
 ```text
 database/database.sqlite
 ```
 
-لإعادة بيانات العرض، أوقف السيرفر ثم شغّل:
+To restore the demonstration data:
 
 ```text
 RESET-DEMO-DATABASE.bat
 ```
 
-يوجد إعداد MySQL بديل داخل:
+An alternative MySQL configuration template is provided:
 
 ```text
 .env.mysql.example
 ```
 
-## الواجهة الأصلية
+---
 
-الواجهة الأصلية المربوطة موجودة داخل:
+# Native User Interface
+
+The original frontend resources are located in:
 
 ```text
 resources/views/original/
@@ -117,9 +150,15 @@ public/js/original-app.js
 frontend-source/
 ```
 
-لا يحتاج التشغيل إلى `npm install` أو `npm run dev`. تستخدم الواجهة Google Fonts وTailwind Play CDN، لذلك يلزم اتصال بالإنترنت لظهور الخطوط والتنسيق الأصلي بالكامل.
+No frontend compilation is required.
 
-## أهم المسارات
+Running `npm install` or `npm run dev` is **not** necessary.
+
+The interface relies on **Google Fonts** and the **Tailwind Play CDN**, so an internet connection is required for full visual styling.
+
+---
+
+# Main Routes
 
 ```text
 /
@@ -136,23 +175,37 @@ frontend-source/
 /api/*
 ```
 
-## التشغيل اليدوي باستخدام الإعداد المحلي
+---
 
-شغّل `START-LIFESTYLE.bat` مرة واحدة لإنشاء `.runtime-php/php.ini`. بعد ذلك يمكن تشغيل الأوامر يدويًا من PowerShell:
+# Manual Execution
+
+Run `START-LIFESTYLE.bat` once to generate the local PHP configuration.
+
+Subsequently, the application can be started manually using PowerShell:
 
 ```powershell
 cd "C:\Projects\Lifestyle-Original-UI-Final-v2"
+
 $env:PHPRC = "$PWD\.runtime-php"
 $env:PHP_INI_SCAN_DIR = ""
+
 php artisan optimize:clear
 php artisan migrate --force
 php artisan serve --host=127.0.0.1 --port=8001
 ```
 
-## فحص المشروع
+---
+
+# Project Verification
+
+Use the following commands to verify the project configuration and functionality:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\VERIFY-PROJECT.ps1
+
 php artisan route:list --except-vendor
+
 php artisan test
 ```
+
+These commands validate the project environment, display the registered application routes, and execute the automated test suite to ensure that all implemented features are functioning correctly.
