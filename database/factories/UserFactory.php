@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 /**
  * @extends Factory<User>
  */
+
 class UserFactory extends Factory
 {
     /**
