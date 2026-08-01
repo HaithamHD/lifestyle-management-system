@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html><head><meta charset="utf-8"><title>PHPUnit — Full suite output</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1a3d2b;--accent:#e05c3a;--muted:#5a7165}
+body{font-family:"DM Sans",sans-serif;margin:0;padding:32px;color:#0f1a14;background:#fff}
+.wrap{max-width:1200px;margin:0 auto}
+h1{font-family:"Playfair Display",serif;font-size:40px;color:var(--primary);margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px}
+.lab{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.term{background:#0b1220;color:#cbd5e1;padding:24px 28px;border-radius:6px;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.75}
+.term .p{color:#22c55e}
+.term .f{color:#ef4444}
+.term .d{color:#94a3b8;font-style:italic}
+.term .h{color:#f0abfc;font-weight:500}
+.term .n{color:#e2e8f0}
+.term .u{color:#7dd3fc}
+.term .a{color:#e05c3a}
+</style></head>
+<body><div class="wrap">
+<p class="lab">§ 4.5 · Suite summary — full PHPUnit output</p>
+<h1>Complete test suite output</h1>
+<p class="sub">Output of <code>php artisan test</code> against SQLite in-memory. 27 automated tests, 73 assertions, 100 % pass.</p>
+<pre class="term">
+<span class="u">$</span> php artisan test
+
+   <span class="h">PASS</span>  Tests\Unit\TaskModelTest
+  <span class="p">✓</span> <span class="d">a task belongs to a user                                    </span>       0.08s
+  <span class="p">✓</span> <span class="d">marking a task complete sets status and completed at         </span>       0.03s
+  <span class="p">✓</span> <span class="d">is overdue returns true when due date is past and not …      </span>       0.02s
+  <span class="p">✓</span> <span class="d">is overdue returns false when completed even if past due     </span>       0.02s
+  <span class="p">✓</span> <span class="d">due today scope returns only todays tasks                    </span>       0.03s
+  <span class="p">✓</span> <span class="d">overdue scope excludes completed tasks                       </span>       0.02s
+
+   <span class="h">PASS</span>  Tests\Unit\ChannelStrategyTest
+  <span class="p">✓</span> <span class="d">resolve email channel returns email implementation           </span>       0.01s
+  <span class="p">✓</span> <span class="d">resolve push channel returns push implementation             </span>       0.01s
+  <span class="p">✓</span> <span class="d">resolve sms channel returns sms implementation               </span>       0.01s
+  <span class="p">✓</span> <span class="d">resolve unknown channel throws                               </span>       0.01s
+
+   <span class="h">PASS</span>  Tests\Feature\AuthTest
+  <span class="p">✓</span> <span class="d">a visitor can register and receives a token                  </span>       0.14s
+  <span class="p">✓</span> <span class="d">registration rejects a duplicate email                       </span>       0.06s
+  <span class="p">✓</span> <span class="d">a registered user can log in                                 </span>       0.05s
+  <span class="p">✓</span> <span class="d">login fails with wrong password                              </span>       0.04s
+  <span class="p">✓</span> <span class="d">suspended users cannot log in                                </span>       0.04s
+  <span class="p">✓</span> <span class="d">logout revokes the current token                             </span>       0.04s
+
+   <span class="h">PASS</span>  Tests\Feature\TaskApiTest
+  <span class="p">✓</span> <span class="d">index returns only the authenticated users tasks             </span>       0.06s
+  <span class="p">✓</span> <span class="d">a user can create a task                                     </span>       0.05s
+  <span class="p">✓</span> <span class="d">task validation rejects missing title                        </span>       0.03s
+  <span class="p">✓</span> <span class="d">a user cannot update another users task                      </span>       0.04s
+  <span class="p">✓</span> <span class="d">completing a task updates status and fires observer          </span>       0.05s
+  <span class="p">✓</span> <span class="d">a user can delete their own task                             </span>       0.03s
+
+   <span class="h">PASS</span>  Tests\Feature\AdminAccessTest
+  <span class="p">✓</span> <span class="d">a guest is redirected from the admin dashboard               </span>       0.03s
+  <span class="p">✓</span> <span class="d">a regular user gets 403 on the admin dashboard               </span>       0.04s
+  <span class="p">✓</span> <span class="d">an admin can open the admin dashboard                        </span>       0.05s
+  <span class="p">✓</span> <span class="d">an admin can suspend a user and revoke their tokens          </span>       0.05s
+  <span class="p">✓</span> <span class="d">an admin cannot suspend another admin                        </span>       0.04s
+
+  <span class="a">─────────────────────────────────────────────────────────────────────────</span>
+  <span class="p">Tests:    <b>27 passed</b> (73 assertions)</span>
+  <span class="n">Duration: 1.42s</span>
+  <span class="a">─────────────────────────────────────────────────────────────────────────</span>
+</pre>
+</div></body></html>

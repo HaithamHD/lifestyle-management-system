@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html><head><meta charset="utf-8"><title>Project structure</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1a3d2b;--accent:#e05c3a;--muted:#5a7165;--border:rgba(26,61,43,.12)}
+body{font-family:"DM Sans",sans-serif;margin:0;padding:32px;color:#0f1a14;background:#fff}
+.wrap{max-width:1280px;margin:0 auto}
+h1{font-family:"Playfair Display",serif;font-size:40px;color:var(--primary);margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 28px;max-width:800px}
+.lab{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.tree{background:#0b1220;color:#cbd5e1;padding:24px 28px;border-radius:6px;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.75;overflow-x:auto}
+.tree .d{color:#7dd3fc;font-weight:500}
+.tree .f{color:#e2e8f0}
+.tree .n{color:#94a3b8;font-style:italic}
+.tree .h{color:#f0abfc}
+</style></head>
+<body><div class="wrap">
+<p class="lab">§ 3A.2 · Project Structure</p>
+<h1>Lifestyle · Laravel 11 backend</h1>
+<p class="sub">Layered architecture — HTTP → Domain → Persistence. Repositories, Observers, Factories, and Strategy channels each live in their own folder to keep design-pattern implementations discoverable.</p>
+<pre class="tree">
+<span class="d">backend/</span>
+├── <span class="d">app/</span>
+│   ├── <span class="d">Http/</span>
+│   │   ├── <span class="d">Controllers/</span>
+│   │   │   ├── <span class="d">Api/</span>              <span class="n">← REST endpoints (frontend)</span>
+│   │   │   │   ├── <span class="f">AuthController.php</span>
+│   │   │   │   ├── <span class="f">DashboardController.php</span>
+│   │   │   │   ├── <span class="f">TaskController.php</span>
+│   │   │   │   ├── <span class="f">HabitController.php</span>
+│   │   │   │   ├── <span class="f">JournalController.php</span>
+│   │   │   │   ├── <span class="f">MoodController.php</span>
+│   │   │   │   └── <span class="f">NotificationController.php</span>
+│   │   │   └── <span class="d">Admin/</span>            <span class="n">← Blade admin dashboard</span>
+│   │   │       ├── <span class="f">AdminDashboardController.php</span>
+│   │   │       ├── <span class="f">UserController.php</span>
+│   │   │       └── <span class="f">ReportsController.php</span>
+│   │   ├── <span class="d">Requests/</span>            <span class="n">← FormRequest validation</span>
+│   │   │   ├── <span class="f">LoginRequest.php</span>
+│   │   │   ├── <span class="f">RegisterRequest.php</span>
+│   │   │   ├── <span class="f">StoreTaskRequest.php</span>
+│   │   │   └── <span class="f">UpdateTaskRequest.php</span>
+│   │   └── <span class="d">Middleware/</span>
+│   ├── <span class="d">Models/</span>                  <span class="n">← Eloquent (mirrors ER diagram)</span>
+│   │   ├── <span class="f">User.php</span>  <span class="f">Task.php</span>  <span class="f">Habit.php</span>  <span class="f">HabitTick.php</span>
+│   │   └── <span class="f">JournalEntry.php</span>  <span class="f">Mood.php</span>  <span class="f">Notification.php</span>
+│   ├── <span class="h">Observers/</span>               <span class="n">← ★ Observer pattern</span>
+│   │   └── <span class="f">TaskObserver.php</span>
+│   ├── <span class="d">Policies/</span>
+│   │   └── <span class="f">TaskPolicy.php</span>
+│   ├── <span class="d">Providers/</span>
+│   │   └── <span class="f">AppServiceProvider.php</span>   <span class="n">← DI bindings</span>
+│   ├── <span class="h">Repositories/</span>            <span class="n">← ★ Repository pattern</span>
+│   │   ├── <span class="d">Contracts/</span>
+│   │   │   ├── <span class="f">TaskRepositoryInterface.php</span>
+│   │   │   └── <span class="f">HabitRepositoryInterface.php</span>
+│   │   ├── <span class="f">EloquentTaskRepository.php</span>
+│   │   └── <span class="f">EloquentHabitRepository.php</span>
+│   └── <span class="d">Services/</span>
+│       └── <span class="h">Notification/</span>        <span class="n">← ★ Strategy pattern</span>
+│           ├── <span class="d">Contracts/</span>
+│           │   └── <span class="f">NotificationChannel.php</span>
+│           ├── <span class="f">EmailChannel.php</span>
+│           ├── <span class="f">PushChannel.php</span>
+│           ├── <span class="f">SmsChannel.php</span>
+│           └── <span class="f">ChannelStrategy.php</span>
+├── <span class="d">database/</span>
+│   ├── <span class="d">migrations/</span>              <span class="n">4 versioned schema files</span>
+│   ├── <span class="h">factories/</span>               <span class="n">← ★ Factory pattern</span>
+│   │   ├── <span class="f">UserFactory.php</span>
+│   │   └── <span class="f">TaskFactory.php</span>
+│   └── <span class="d">seeders/</span>
+├── <span class="d">resources/</span>
+│   └── <span class="d">views/</span>
+│       └── <span class="d">admin/</span>               <span class="n">Blade admin views</span>
+├── <span class="d">routes/</span>
+│   ├── <span class="f">api.php</span>                  <span class="n">Sanctum-protected REST routes</span>
+│   └── <span class="f">web.php</span>                  <span class="n">Admin panel + auth</span>
+├── <span class="d">tests/</span>
+│   ├── <span class="d">Unit/</span>
+│   │   ├── <span class="f">TaskModelTest.php</span>       <span class="n">6 tests · 14 assertions</span>
+│   │   └── <span class="f">ChannelStrategyTest.php</span> <span class="n">4 tests · 8 assertions</span>
+│   └── <span class="d">Feature/</span>
+│       ├── <span class="f">AuthTest.php</span>           <span class="n">6 tests · 18 assertions</span>
+│       ├── <span class="f">TaskApiTest.php</span>        <span class="n">6 tests · 21 assertions</span>
+│       └── <span class="f">AdminAccessTest.php</span>    <span class="n">5 tests · 12 assertions</span>
+├── <span class="f">composer.json</span>            <span class="f">phpunit.xml</span>
+├── <span class="f">.env.example</span>             <span class="f">README.md</span>
+</pre>
+</div></body></html>

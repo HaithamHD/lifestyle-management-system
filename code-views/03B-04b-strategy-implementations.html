@@ -1,0 +1,205 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Strategy pattern · Three channels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
+<style>
+  :root {
+    --primary: #1a3d2b; --accent: #e05c3a;
+    --bg: #ffffff; --card: #0f172a; --muted: #5a7165;
+    --border: rgba(26,61,43,0.12);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px; background: var(--bg);
+    font-family: "DM Sans", sans-serif; color: #0f1a14;
+  }
+  .wrapper { max-width: 1400px; margin: 0 auto; }
+  .header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding-bottom: 20px; border-bottom: 2px solid var(--primary); margin-bottom: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-mark {
+    width: 28px; height: 28px; background: var(--primary); border-radius: 4px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .brand-name {
+    font-family: "Playfair Display", serif; font-size: 22px; font-weight: 600; color: var(--primary);
+  }
+  .breadcrumb {
+    font-family: "DM Mono", monospace; font-size: 11px; color: var(--muted);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .title {
+    font-family: "Playfair Display", serif; font-size: 36px; font-weight: 700;
+    color: var(--primary); margin: 0 0 4px 0; line-height: 1.15;
+  }
+  .subtitle { color: var(--muted); font-size: 14px; margin: 0; max-width: 720px; }
+  .code-card {
+    margin-top: 24px; border: 1px solid var(--border); border-radius: 6px;
+    overflow: hidden; box-shadow: 0 6px 24px rgba(15,23,42,0.06);
+  }
+  .code-title-bar {
+    background: #0b1220; color: #cbd5e1; padding: 10px 18px;
+    font-family: "JetBrains Mono", monospace; font-size: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-r { background: #ef4444; }
+  .dot-y { background: #eab308; }
+  .dot-g { background: #22c55e; }
+  .code-title-bar .path { margin-left: 10px; color: #94a3b8; }
+  .code-title-bar .lang { margin-left: auto; color: #64748b; }
+  pre {
+    margin: 0; padding: 24px 20px; background: #282c34;
+    font-family: "JetBrains Mono", monospace; font-size: 13px; line-height: 1.6;
+    overflow-x: auto;
+  }
+  pre code { background: transparent; padding: 0; }
+  .footer {
+    margin-top: 20px; display: flex; justify-content: space-between;
+    font-family: "DM Mono", monospace; font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.12em;
+  }
+  .badge {
+    display: inline-block; padding: 3px 8px; border-radius: 3px;
+    background: #eaf2ec; color: var(--primary);
+    font-family: "DM Mono", monospace; font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .badge-accent { background: rgba(224,92,58,0.12); color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="brand">
+      <span class="brand-mark">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+      </span>
+      <span class="brand-name">Lifestyle · Backend</span>
+    </div>
+    <span class="breadcrumb">§ 3B.4 · Strategy pattern (2/3)</span>
+  </div>
+
+  <h1 class="title">Strategy pattern · Three channels</h1>
+  <p class="subtitle">Email (Laravel Mail), Push (Firebase FCM), and SMS (Twilio) — three interchangeable strategies. Adding a fourth is one new class + one match arm.</p>
+
+  <div class="code-card">
+    <div class="code-title-bar">
+      <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+      <span class="path">app/Services/Notification/{Email,Push,Sms}Channel.php</span>
+      <span class="lang">PHP</span>
+    </div>
+    <pre><code class="language-php">// ── app\Services\Notification\EmailChannel.php ──
+&lt;?php
+
+namespace App\Services\Notification;
+
+use App\Models\User;
+use App\Services\Notification\Contracts\NotificationChannel;
+use Illuminate\Support\Facades\Mail;
+
+class EmailChannel implements NotificationChannel
+{
+    public function send(int $userId, string $message): void
+    {
+        $user = User::findOrFail($userId);
+
+        Mail::raw($message, function ($mail) use ($user) {
+            $mail-&gt;to($user-&gt;email)-&gt;subject('Lifestyle notification');
+        });
+    }
+
+    public function name(): string
+    {
+        return 'email';
+    }
+}
+
+
+// ── app\Services\Notification\PushChannel.php ──
+&lt;?php
+
+namespace App\Services\Notification;
+
+use App\Services\Notification\Contracts\NotificationChannel;
+use Illuminate\Support\Facades\Http;
+
+class PushChannel implements NotificationChannel
+{
+    /** Firebase Cloud Messaging (FCM) endpoint. */
+    private const FCM_ENDPOINT = 'https://fcm.googleapis.com/fcm/send';
+
+    public function send(int $userId, string $message): void
+    {
+        Http::withToken(config('services.fcm.server_key'))
+            -&gt;post(self::FCM_ENDPOINT, [
+                'to'           =&gt; "/topics/user_{$userId}",
+                'notification' =&gt; [
+                    'title' =&gt; 'Lifestyle',
+                    'body'  =&gt; $message,
+                ],
+            ]);
+    }
+
+    public function name(): string
+    {
+        return 'push';
+    }
+}
+
+
+// ── app\Services\Notification\SmsChannel.php ──
+&lt;?php
+
+namespace App\Services\Notification;
+
+use App\Models\User;
+use App\Services\Notification\Contracts\NotificationChannel;
+use Illuminate\Support\Facades\Http;
+
+class SmsChannel implements NotificationChannel
+{
+    public function send(int $userId, string $message): void
+    {
+        $user = User::findOrFail($userId);
+
+        // Twilio-compatible payload
+        Http::withBasicAuth(
+                config('services.twilio.sid'),
+                config('services.twilio.token'),
+            )
+            -&gt;asForm()
+            -&gt;post('https://api.twilio.com/2010-04-01/Accounts/'
+                . config('services.twilio.sid') . '/Messages.json', [
+                'From' =&gt; config('services.twilio.from'),
+                'To'   =&gt; $user-&gt;phone ?? '',
+                'Body' =&gt; $message,
+            ]);
+    }
+
+    public function name(): string
+    {
+        return 'sms';
+    }
+}
+</code></pre>
+  </div>
+
+  <div class="footer">
+    <span>PATTERN · STRATEGY</span>
+    <span>LIFESTYLE / AL-AQSA UNIVERSITY · 2026</span>
+  </div>
+</div>
+<script>document.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));</script>
+</body>
+</html>
+

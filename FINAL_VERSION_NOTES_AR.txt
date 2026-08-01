@@ -1,0 +1,14 @@
+Lifestyle Management System - Original UI Final v3
+
+الإصلاحات في هذه النسخة:
+- تم إصلاح خطأ PHP Parse error: unexpected identifier "All".
+- تم نقل فحص إضافات PHP إلى ملف PHP مستقل لتجنب مشاكل علامات الاقتباس في Windows Batch.
+- تم تحسين عرض إصدار PHP في ملف التشغيل.
+- تم تحسين ملف DIAGNOSE-PHP.bat لفحص الإضافات باستخدام الإعداد المحلي للمشروع.
+- تم الحفاظ على الواجهات الأصلية وربطها بالـ Laravel API.
+
+طريقة التشغيل:
+1. فك الضغط كاملًا.
+2. افتح المجلد الذي يحتوي artisan.
+3. شغّل START-LIFESTYLE.bat.
+4. اترك نافذة السيرفر مفتوحة.

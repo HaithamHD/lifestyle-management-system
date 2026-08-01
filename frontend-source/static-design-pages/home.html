@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lifestyle · Live better, every single day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: {
+    background: "#ffffff", foreground: "#0f1a14", card: "#f7f9f7",
+    primary: { DEFAULT: "#1a3d2b", dark: "#14301f", foreground: "#ffffff" },
+    secondary: "#eaf2ec",
+    muted: { DEFAULT: "#f0f4f1", foreground: "#5a7165" },
+    accent: { DEFAULT: "#e05c3a", foreground: "#ffffff" },
+    border: "rgba(26, 61, 43, 0.12)",
+  },
+  fontFamily: {
+    display: ['"Playfair Display"', "serif"],
+    sans: ['"DM Sans"', "sans-serif"],
+    mono: ['"DM Mono"', "monospace"],
+  },
+} } };
+</script>
+<style> body { font-family: "DM Sans", sans-serif; color: #0f1a14; } </style>
+</head>
+<body class="bg-background text-foreground overflow-x-hidden">
+
+<!-- ── NAV ─────────────────────────────────────────────── -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+    <a href="./home.html" class="flex items-center gap-2 group">
+      <span class="w-7 h-7 bg-primary rounded-sm flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-4 h-4"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+      </span>
+      <span class="font-display font-semibold text-xl text-primary tracking-tight">Lifestyle</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
+      <a href="#" class="text-sm text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
+      <a href="#" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Plans</a>
+      <a href="#" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Community</a>
+      <a href="#" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-3">
+      <a href="./login.html" class="text-sm font-medium text-foreground hover:text-primary transition-colors">Sign in</a>
+      <a href="./register.html" class="text-sm font-medium bg-primary text-white px-4 py-2 rounded-sm hover:bg-primary-dark transition-colors">Start free</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ────────────────────────────────────────────── -->
+<section class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-accent border border-accent/30 bg-accent/5 px-3 py-1.5 rounded-sm mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Your complete life system
+      </div>
+      <h1 class="font-display text-5xl lg:text-6xl xl:text-7xl font-bold text-primary leading-[1.1] mb-6">
+        Live better,<br/>
+        <em class="italic font-normal text-accent">every single</em><br/>
+        day.
+      </h1>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
+        Lifestyle brings together fitness, nutrition, sleep, and habits into one intelligent system — so you can stop managing apps and start managing your life.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 mb-10">
+        <a href="./register.html" class="inline-flex items-center justify-center gap-2 bg-primary text-white text-sm font-medium px-6 py-3.5 rounded-sm hover:bg-primary-dark transition-colors group">
+          Get started — it's free
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#" class="inline-flex items-center justify-center gap-2 border border-border text-sm font-medium px-6 py-3.5 rounded-sm hover:border-primary hover:text-primary transition-colors">
+          Watch 2-min demo
+        </a>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="flex -space-x-2">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b830?w=40&h=40&fit=crop&auto=format" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&h=40&fit=crop&auto=format" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=40&h=40&fit=crop&auto=format" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=40&h=40&fit=crop&auto=format" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
+        </div>
+        <p class="text-sm text-muted-foreground">
+          <span class="font-semibold text-foreground">1.2M+</span> members living better
+        </p>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="relative rounded-sm overflow-hidden aspect-[4/5] bg-secondary">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=700&h=875&fit=crop&auto=format" alt="Person tracking their healthy lifestyle" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+      </div>
+      <div class="absolute -left-6 top-16 bg-white border border-border rounded-sm px-4 py-3 shadow-lg hidden sm:block">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-secondary rounded-sm flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4 text-primary"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div>
+            <p class="font-mono text-xs text-muted-foreground">Weekly score</p>
+            <p class="font-semibold text-sm">87 / 100</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -right-4 bottom-20 bg-accent text-white rounded-sm px-4 py-3 shadow-lg hidden sm:block">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="w-4 h-4"><path d="M20 6 9 17l-5-5"/></svg>
+          <div>
+            <p class="text-xs opacity-80">Streak</p>
+            <p class="font-semibold text-sm">34 days</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute left-4 bottom-8 bg-white border border-border rounded-sm px-3 py-2 shadow-lg hidden sm:block">
+        <div class="flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" class="w-3 h-3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" class="w-3 h-3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" class="w-3 h-3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" class="w-3 h-3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" class="w-3 h-3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="text-xs text-muted-foreground ml-1">4.8 rating</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS BAR ───────────────────────────────────────── -->
+<section class="border-y border-border bg-primary">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="text-center">
+      <p class="font-display text-4xl font-bold text-white mb-1">1.2M+</p>
+      <p class="text-sm text-white/60 font-mono tracking-wide uppercase">Active Members</p>
+    </div>
+    <div class="text-center">
+      <p class="font-display text-4xl font-bold text-white mb-1">94%</p>
+      <p class="text-sm text-white/60 font-mono tracking-wide uppercase">Report Positive Change</p>
+    </div>
+    <div class="text-center">
+      <p class="font-display text-4xl font-bold text-white mb-1">4.8★</p>
+      <p class="text-sm text-white/60 font-mono tracking-wide uppercase">App Store Rating</p>
+    </div>
+    <div class="text-center">
+      <p class="font-display text-4xl font-bold text-white mb-1">38</p>
+      <p class="text-sm text-white/60 font-mono tracking-wide uppercase">Avg. Days to New Habit</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PILLARS ─────────────────────────────────────────── -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+  <div class="mb-12">
+    <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-3">What we manage</p>
+    <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary leading-tight max-w-2xl">
+      Every dimension of your well-being, unified.
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-6">
+    <div class="flex flex-col gap-3">
+      <!-- Active: Fitness -->
+      <div class="text-left p-5 rounded-sm border border-primary bg-secondary">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-sm flex items-center justify-center shrink-0 bg-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" class="w-4 h-4"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-0.5">Fitness</p>
+            <h3 class="font-display text-xl font-semibold text-primary mb-1">Move with purpose</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed mt-2">
+              Track workouts, set personal records, and follow adaptive training plans tailored to your schedule and goals.
+            </p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4 shrink-0 mt-1 rotate-90 text-primary"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+        <div class="mt-3 ml-13 pl-1">
+          <span class="inline-flex items-center gap-1.5 text-xs font-mono text-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-3 h-3"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            2.4M+ workouts logged
+          </span>
+        </div>
+      </div>
+      <div class="text-left p-5 rounded-sm border border-border bg-white">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-sm flex items-center justify-center shrink-0 bg-muted">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4 text-muted-foreground"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-0.5">Nutrition</p>
+            <h3 class="font-display text-xl font-semibold text-primary mb-1">Fuel your life</h3>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4 shrink-0 mt-1 text-muted-foreground"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </div>
+      <div class="text-left p-5 rounded-sm border border-border bg-white">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-sm flex items-center justify-center shrink-0 bg-muted">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4 text-muted-foreground"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-0.5">Sleep &amp; Recovery</p>
+            <h3 class="font-display text-xl font-semibold text-primary mb-1">Rest better, perform better</h3>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4 shrink-0 mt-1 text-muted-foreground"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </div>
+      <div class="text-left p-5 rounded-sm border border-border bg-white">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-sm flex items-center justify-center shrink-0 bg-muted">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4 text-muted-foreground"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-0.5">Habits</p>
+            <h3 class="font-display text-xl font-semibold text-primary mb-1">Small steps. Big change.</h3>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4 shrink-0 mt-1 text-muted-foreground"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative rounded-sm overflow-hidden min-h-[400px] bg-secondary">
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop&auto=format" alt="Fitness" class="w-full h-full object-cover absolute inset-0" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+      <div class="absolute bottom-6 left-6 right-6">
+        <p class="font-display text-2xl font-bold text-white mb-1">Move with purpose</p>
+        <p class="text-sm text-white/75">2.4M+ workouts logged</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ────────────────────────────────────── -->
+<section class="py-24 bg-[#f7f9f7] border-y border-border">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 items-start">
+      <div>
+        <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-3">How it works</p>
+        <h2 class="font-display text-4xl font-bold text-primary leading-tight">Four steps to your best self.</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div><p class="font-mono text-4xl font-medium text-border mb-4">01</p><h3 class="font-display text-xl font-semibold text-primary mb-2">Set your baseline</h3><p class="text-sm text-muted-foreground leading-relaxed">Answer a short lifestyle survey. We assess your current fitness, nutrition habits, sleep patterns, and goals.</p></div>
+        <div><p class="font-mono text-4xl font-medium text-border mb-4">02</p><h3 class="font-display text-xl font-semibold text-primary mb-2">Get your plan</h3><p class="text-sm text-muted-foreground leading-relaxed">Lifestyle generates a personalized system — not a generic template — built around your schedule and priorities.</p></div>
+        <div><p class="font-mono text-4xl font-medium text-border mb-4">03</p><h3 class="font-display text-xl font-semibold text-primary mb-2">Track &amp; adapt</h3><p class="text-sm text-muted-foreground leading-relaxed">Log daily. Our engine reads your data and adjusts your plan weekly, keeping it challenging and achievable.</p></div>
+        <div><p class="font-mono text-4xl font-medium text-border mb-4">04</p><h3 class="font-display text-xl font-semibold text-primary mb-2">Grow continuously</h3><p class="text-sm text-muted-foreground leading-relaxed">Monthly reviews, community challenges, and expert content keep you engaged long after the initial motivation fades.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ────────────────────────────────────── -->
+<section class="py-24 bg-primary">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-12">
+      <p class="text-xs font-mono tracking-widest uppercase text-white/50 mb-3">Real people, real results</p>
+      <h2 class="font-display text-4xl font-bold text-white leading-tight">
+        Life-changing is<br/>not an overstatement.
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white/5 border border-white/10 rounded-sm p-6">
+        <div class="flex gap-1 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote class="font-display text-lg italic text-white/90 leading-relaxed mb-6">
+          "Lifestyle brought together everything I was managing in five different apps. The sleep-nutrition correlation data alone changed how I train."
+        </blockquote>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&auto=format" class="w-10 h-10 rounded-full object-cover" alt=""/>
+          <div><p class="text-sm font-medium text-white">Sara Al-Mahmoud</p><p class="text-xs text-white/50">Nutritionist &amp; Marathon Runner</p></div>
+        </div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-sm p-6">
+        <div class="flex gap-1 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote class="font-display text-lg italic text-white/90 leading-relaxed mb-6">
+          "I lost 12 kg in six months without a strict diet — just consistent habit tracking and the weekly insights that told me where I was slipping."
+        </blockquote>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&auto=format" class="w-10 h-10 rounded-full object-cover" alt=""/>
+          <div><p class="text-sm font-medium text-white">Karim Nasser</p><p class="text-xs text-white/50">Software Engineer</p></div>
+        </div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-sm p-6">
+        <div class="flex gap-1 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" class="w-3.5 h-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote class="font-display text-lg italic text-white/90 leading-relaxed mb-6">
+          "The mindfulness and sleep modules are genuinely thoughtful. This isn't a calorie counter — it's a life system."
+        </blockquote>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&auto=format" class="w-10 h-10 rounded-full object-cover" alt=""/>
+          <div><p class="text-sm font-medium text-white">Layla Haddad</p><p class="text-xs text-white/50">Yoga Instructor</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ─────────────────────────────────────────────── -->
+<section class="py-24 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-4">Start today</p>
+    <h2 class="font-display text-5xl lg:text-6xl font-bold text-primary leading-tight mb-6">
+      Your best life<br/>
+      <em class="italic font-normal text-accent">starts here.</em>
+    </h2>
+    <p class="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
+      Join 1.2 million people using Lifestyle to take control of their fitness, nutrition, sleep, and habits — all in one place.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="./register.html" class="inline-flex items-center justify-center gap-2 bg-primary text-white text-sm font-medium px-8 py-4 rounded-sm hover:bg-primary-dark transition-colors group">
+        Create free account
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="w-4 h-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#" class="inline-flex items-center justify-center gap-2 border border-border text-sm font-medium px-8 py-4 rounded-sm hover:border-primary hover:text-primary transition-colors">See pricing</a>
+    </div>
+    <p class="text-xs text-muted-foreground mt-5">No credit card required. 14-day premium trial included.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer class="border-t border-border">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+      <div class="col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-7 h-7 bg-primary rounded-sm flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-4 h-4"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+          </span>
+          <span class="font-display font-semibold text-xl text-primary">Lifestyle</span>
+        </div>
+        <p class="text-sm text-muted-foreground leading-relaxed max-w-xs">
+          A web-based lifestyle management system for people serious about living well.
+        </p>
+      </div>
+      <div>
+        <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-4">Product</p>
+        <div class="flex flex-col gap-2.5">
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Features</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Pricing</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Integrations</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Changelog</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-4">Company</p>
+        <div class="flex flex-col gap-2.5">
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">About</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Blog</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Careers</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Press</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-4">Support</p>
+        <div class="flex flex-col gap-2.5">
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Help Center</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Contact</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Privacy</a>
+          <a href="#" class="text-sm text-foreground/70 hover:text-foreground">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-border pt-6 flex flex-col sm:flex-row justify-between gap-3">
+      <p class="text-xs text-muted-foreground">© 2026 Lifestyle. All rights reserved.</p>
+      <p class="text-xs text-muted-foreground font-mono">LIVE BETTER · EVERY DAY</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

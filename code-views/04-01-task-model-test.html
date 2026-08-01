@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html><head><meta charset="utf-8"><title>§ 4.1.1 · Unit · TaskModelTest · PHPUnit</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1a3d2b;--accent:#e05c3a;--muted:#5a7165}
+body{font-family:"DM Sans",sans-serif;margin:0;padding:32px;color:#0f1a14;background:#fff}
+.wrap{max-width:1200px;margin:0 auto}
+h1{font-family:"Playfair Display",serif;font-size:36px;color:var(--primary);margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 22px}
+.lab{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.term{background:#0b1220;color:#cbd5e1;padding:22px 26px;border-radius:6px;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.75}
+.term .p{color:#22c55e}
+.term .h{color:#f0abfc;font-weight:500}
+.term .d{color:#94a3b8;font-style:italic}
+.term .u{color:#7dd3fc}
+.term .n{color:#e2e8f0}
+.term .a{color:#e05c3a}
+</style></head>
+<body><div class="wrap">
+<p class="lab">§ 4.1.1 · Unit · TaskModelTest</p>
+<h1>Test result</h1>
+<p class="sub">PHPUnit output — Task domain model exercised in isolation from HTTP.</p>
+<pre class="term"><span class="u">$</span> php artisan test --filter=TaskModelTest
+
+   <span class="h">PASS</span>  Tests\Unit\TaskModelTest
+  <span class="p">✓</span> <span class="d">a task belongs to a user                                    </span>       0.08s
+  <span class="p">✓</span> <span class="d">marking a task complete sets status and completed at         </span>       0.03s
+  <span class="p">✓</span> <span class="d">is overdue returns true when due date is past and not …      </span>       0.02s
+  <span class="p">✓</span> <span class="d">is overdue returns false when completed even if past due     </span>       0.02s
+  <span class="p">✓</span> <span class="d">due today scope returns only todays tasks                    </span>       0.03s
+  <span class="p">✓</span> <span class="d">overdue scope excludes completed tasks                       </span>       0.02s
+
+  <span class="a">─────────────────────────────────────────────────────────────</span>
+  <span class="p">Tests:    <b>6 passed</b> (14 assertions)</span>
+  <span class="n">Duration: 0.31s</span></pre>
+</div></body></html>

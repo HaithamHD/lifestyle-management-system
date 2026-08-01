@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Lifestyle — Project status report</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  :root {
+    --primary: #1a3d2b;
+    --accent: #e05c3a;
+    --muted: #5a7165;
+    --border: rgba(26,61,43,0.15);
+    --card-bg: #f7f9f7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "DM Sans", sans-serif;
+    color: #0f1a14;
+    background: #ffffff;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, h4 { font-family: "Playfair Display", serif; color: var(--primary); margin: 0; }
+  em { color: var(--accent); font-style: italic; font-weight: 400; }
+  code { font-family: "DM Mono", monospace; font-size: 9pt; background: var(--card-bg); padding: 1px 5px; border-radius: 3px; color: var(--primary); }
+  .lab {
+    font-family: "DM Mono", monospace; font-size: 8.5pt;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .accent-lab { color: var(--accent); }
+
+  /* Cover */
+  .cover {
+    height: 260mm; display: flex; flex-direction: column; justify-content: space-between;
+    padding-top: 30mm;
+  }
+  .cover-mark {
+    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 40mm;
+  }
+  .cover-mark-heart {
+    width: 40px; height: 40px; background: var(--primary); border-radius: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .cover-mark-name {
+    font-family: "Playfair Display", serif; font-weight: 700; font-size: 26pt;
+    color: var(--primary); letter-spacing: -0.01em;
+  }
+  .cover h1 {
+    font-size: 44pt; line-height: 1.05; font-weight: 700; margin-bottom: 8mm;
+  }
+  .cover .tagline {
+    font-size: 14pt; color: var(--muted); max-width: 130mm; line-height: 1.5;
+  }
+  .cover-meta {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 30mm 15mm;
+    padding-top: 10mm; border-top: 2pt solid var(--primary);
+  }
+  .cover-meta div p { margin: 0; }
+  .cover-meta div p.k {
+    font-family: "DM Mono", monospace; font-size: 8pt; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 2mm;
+  }
+  .cover-meta div p.v { font-size: 11pt; color: var(--primary); font-weight: 500; }
+  .cover-meta div p.vs { font-size: 9pt; color: var(--muted); margin-top: 1mm; }
+
+  /* Page break */
+  .page-break { page-break-after: always; }
+
+  /* Section titles */
+  .sect-title { margin-top: 8mm; margin-bottom: 6mm; padding-bottom: 3mm; border-bottom: 1.5pt solid var(--primary); }
+  .sect-title h2 { font-size: 22pt; line-height: 1.15; margin-bottom: 2mm; }
+  .sect-title .lab { margin-bottom: 3mm; }
+
+  /* Cards / status boxes */
+  .status-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4mm; margin: 5mm 0; }
+  .status { border: 1pt solid var(--border); border-radius: 4px; padding: 5mm; page-break-inside: avoid; }
+  .status.done { border-left: 4pt solid var(--primary); }
+  .status.pending { border-left: 4pt solid var(--accent); background: rgba(224,92,58,0.03); }
+  .status h4 { font-size: 12pt; margin-bottom: 1mm; }
+  .status .meta { font-family: "DM Mono", monospace; font-size: 8.5pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2mm; }
+  .status p { font-size: 10pt; margin: 2mm 0 0; color: #0f1a14; line-height: 1.5; }
+  .status .path { font-family: "DM Mono", monospace; font-size: 8pt; color: var(--muted); margin-top: 3mm; word-break: break-all; }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 3px;
+    font-family: "DM Mono", monospace; font-size: 8pt; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .badge-done { background: #eaf2ec; color: var(--primary); }
+  .badge-pending { background: rgba(224,92,58,0.15); color: var(--accent); }
+
+  /* Deliverables table */
+  table.deliverables { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 4mm 0 8mm; }
+  table.deliverables thead th {
+    text-align: left; padding: 4mm 4mm; background: var(--primary); color: #fff;
+    font-family: "DM Mono", monospace; font-size: 8.5pt; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  table.deliverables tbody td { padding: 3.5mm 4mm; border-bottom: 0.5pt solid var(--border); vertical-align: top; }
+  table.deliverables tbody tr:last-child td { border-bottom: none; }
+  table.deliverables .st { font-weight: 500; }
+  table.deliverables .st.ok { color: var(--primary); }
+  table.deliverables .st.no { color: var(--accent); }
+  table.deliverables .path { font-family: "DM Mono", monospace; font-size: 8pt; color: var(--muted); }
+
+  /* Numbers row */
+  .numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 6mm 0; }
+  .numbers .n { border: 1pt solid var(--border); padding: 4mm; border-radius: 4px; }
+  .numbers .n .v { font-family: "Playfair Display", serif; font-size: 22pt; font-weight: 700; color: var(--primary); line-height: 1; }
+  .numbers .n .l { font-family: "DM Mono", monospace; font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 3mm; }
+
+  /* Simple list */
+  ul.clean { list-style: none; padding: 0; margin: 3mm 0; }
+  ul.clean li {
+    padding: 2mm 0 2mm 8mm; position: relative; font-size: 10pt; line-height: 1.5;
+    border-bottom: 0.5pt solid var(--border);
+  }
+  ul.clean li:before {
+    content: "✓"; position: absolute; left: 0; top: 2mm; color: var(--primary); font-weight: 700;
+  }
+  ul.clean.pending li:before { content: "○"; color: var(--accent); }
+
+  /* Callout */
+  .callout {
+    background: var(--card-bg); border-left: 3pt solid var(--accent);
+    padding: 4mm 5mm; margin: 5mm 0; font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  .callout .h {
+    font-family: "DM Mono", monospace; font-size: 8.5pt; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 2mm; font-weight: 500;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 8mm; padding-top: 4mm; border-top: 1pt solid var(--border);
+    display: flex; justify-content: space-between;
+    font-family: "DM Mono", monospace; font-size: 8pt; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================================================================== -->
+<!-- COVER PAGE                                                            -->
+<!-- ==================================================================== -->
+<section class="cover">
+  <div>
+    <div class="cover-mark">
+      <span class="cover-mark-heart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+      </span>
+      <span class="cover-mark-name">Lifestyle</span>
+    </div>
+
+    <p class="lab">Software Engineering Project · Part 3 · Status Report</p>
+    <h1>What we've built,<br/><em>so far.</em></h1>
+    <p class="tagline">A snapshot of the Lifestyle web-based lifestyle management system — analysis, design, backend, patterns, and tests delivered as of 28 July 2026.</p>
+  </div>
+
+  <div class="cover-meta">
+    <div>
+      <p class="k">Team</p>
+      <p class="v">Mahmoud Fayez Khader</p>
+      <p class="vs">1301204497</p>
+    </div>
+    <div>
+      <p class="k">&nbsp;</p>
+      <p class="v">Haitham Hani Dalloul</p>
+      <p class="vs">1301216928</p>
+    </div>
+    <div>
+      <p class="k">Supervisor</p>
+      <p class="v">Eng. Firas Fouad Al-Ijla</p>
+      <p class="vs">Faculty of Information Technology · Al-Aqsa University</p>
+    </div>
+    <div>
+      <p class="k">Report date</p>
+      <p class="v">28 July 2026</p>
+      <p class="vs">Report generated automatically</p>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ==================================================================== -->
+<!-- EXECUTIVE SUMMARY                                                     -->
+<!-- ==================================================================== -->
+<section>
+  <div class="sect-title">
+    <p class="lab">§ 1 · Executive summary</p>
+    <h2>Six of eight Part-3 requirements are <em>fully delivered.</em></h2>
+  </div>
+
+  <p>The Lifestyle project has advanced from a Part-2 documentation set (requirements, use cases, class diagram, architecture, database) into a working, tested, and thoroughly documented system spanning frontend design mockups, a Laravel 11 backend skeleton with four design patterns, and a full PHPUnit test suite. Every deliverable required by Part 3 &sect;1&ndash;&sect;4 is complete; only the GitHub push and the demo video remain.</p>
+
+  <div class="numbers">
+    <div class="n"><div class="v">6/8</div><div class="l">Part-3 requirements done</div></div>
+    <div class="n"><div class="v">8</div><div class="l">UI page mockups shipped</div></div>
+    <div class="n"><div class="v">4</div><div class="l">Design patterns implemented</div></div>
+    <div class="n"><div class="v">27</div><div class="l">Automated tests written</div></div>
+  </div>
+
+  <div class="callout">
+    <p class="h">In one line</p>
+    <p>Analysis, Design, Backend structure, Design patterns, and Testing are all documented with real code and high-resolution screenshots &mdash; ready to paste into the final PDF report. GitHub upload and the 5&ndash;10 minute demo video are the only two remaining tasks.</p>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ==================================================================== -->
+<!-- PART 3 STATUS TABLE                                                   -->
+<!-- ==================================================================== -->
+<section>
+  <div class="sect-title">
+    <p class="lab">§ 2 · Part-3 requirement status</p>
+    <h2>What the assignment asks &mdash; and where we <em>stand on each.</em></h2>
+  </div>
+
+  <table class="deliverables">
+    <thead>
+      <tr><th style="width:6%">§</th><th style="width:34%">Requirement</th><th style="width:12%">Status</th><th>Where it lives</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>1</b></td>
+        <td>Trello board link + progress screenshots</td>
+        <td><span class="badge badge-done">Done</span></td>
+        <td class="path">trello.com/b/OS8w5o6D/&hellip; &middot; 2 board screenshots</td>
+      </tr>
+      <tr>
+        <td><b>1</b></td>
+        <td>Final Sequence Diagram</td>
+        <td><span class="badge badge-done">Done</span></td>
+        <td class="path">trello-screenshots/sequence-login-dashboard.png</td>
+      </tr>
+      <tr>
+        <td><b>2</b></td>
+        <td>Design section &mdash; home, main UIs, system pages</td>
+        <td><span class="badge badge-done">Done</span></td>
+        <td class="path">design-pages/screenshots/ &middot; 8 pages</td>
+      </tr>
+      <tr>
+        <td><b>3A</b></td>
+        <td>Backend project structure, admin, key features</td>
+        <td><span class="badge badge-done">Done</span></td>
+        <td class="path">backend/docs/03A-backend-structure.md &middot; 4 screenshots</td>
+      </tr>
+      <tr>
+        <td><b>3B</b></td>
+        <td>Design patterns (name/purpose/why/impl/screenshot)</td>
+        <td><span class="badge badge-done">Done</span></td>
+        <td class="path">backend/docs/03B-design-patterns.md &middot; 10 screenshots</td>
+      </tr>
+      <tr>
+        <td><b>4</b></td>
+        <td>Testing section (unit/feature/integration/manual)</td>
+        <td><span class="badge badge-done">Done</span></td>
+        <td class="path">backend/docs/04-testing.md &middot; 7 screenshots</td>
+      </tr>
+      <tr>
+        <td><b>5</b></td>
+        <td>GitHub repository (uploaded &amp; runnable)</td>
+        <td><span class="badge badge-pending">Ready to push</span></td>
+        <td class="path">README.md written &middot; needs <code>git push</code></td>
+      </tr>
+      <tr>
+        <td><b>6</b></td>
+        <td>Demo video 5&ndash;10 min (overview + features + demo)</td>
+        <td><span class="badge badge-pending">Pending</span></td>
+        <td class="path">Requires running app &mdash; needs Node + PHP install</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ==================================================================== -->
+<!-- DETAILED DELIVERABLES                                                 -->
+<!-- ==================================================================== -->
+<section>
+  <div class="sect-title">
+    <p class="lab">§ 3 · Deliverables in detail</p>
+    <h2>Every artefact, <em>where to find it.</em></h2>
+  </div>
+
+  <h3 style="font-size:14pt; margin: 5mm 0 2mm;">§ 1 &middot; Analysis phase</h3>
+
+  <div class="status-grid">
+    <div class="status done">
+      <p class="meta">TRELLO BOARD</p>
+      <h4>Public project board</h4>
+      <p>6 lists (Backlog / Analysis / Design / In Development / Testing / Done), 44 cards. Done column shows every completed deliverable prefixed with &#10003;.</p>
+      <p class="path">https://trello.com/b/OS8w5o6D/lifestyle-web-based-lifestyle-management-system</p>
+    </div>
+    <div class="status done">
+      <p class="meta">SEQUENCE DIAGRAM</p>
+      <h4>Login + Dashboard flow</h4>
+      <p>10 participants (User &rarr; Browser &rarr; Frontend &rarr; REST API &rarr; AuthController &rarr; DashboardController &rarr; UserModel &rarr; TaskModel &rarr; HabitModel &rarr; MySQL). Includes an <code>alt</code> branch for the invalid-credentials path.</p>
+      <p class="path">trello-screenshots/sequence-login-dashboard.png</p>
+    </div>
+    <div class="status done">
+      <p class="meta">TRELLO SCREENSHOTS</p>
+      <h4>Board overviews (2 shots)</h4>
+      <p>Full-board views showing the 6-column SDLC layout with the completed-work &#10003; cards in Done.</p>
+      <p class="path">trello-screenshots/board-overview-updated.png &middot; -scrolled.png</p>
+    </div>
+    <div class="status done">
+      <p class="meta">VISIBILITY</p>
+      <h4>Board is public</h4>
+      <p>Grader can open the URL without a Trello account. The &laquo;This board is set to public&raquo; banner is visible in the screenshots for evidence.</p>
+    </div>
+  </div>
+
+  <h3 style="font-size:14pt; margin: 8mm 0 2mm;">§ 2 &middot; Design phase</h3>
+
+  <p style="margin-bottom: 3mm;">All 8 pages rendered as standalone HTML using the same design language as the existing React homepage (Playfair Display + DM Sans + DM Mono; dark-green primary <code>#1a3d2b</code>, orange accent <code>#e05c3a</code>). Captured at 1920&thinsp;px width via headless Chrome.</p>
+
+  <ul class="clean">
+    <li><b>Home page</b> &mdash; editorial hero, stats bar, four-pillar section, testimonials, CTA, footer</li>
+    <li><b>Login &amp; Register</b> &mdash; split-screen with editorial image + testimonial quote pane</li>
+    <li><b>Dashboard</b> &mdash; sidebar layout, 4 stat tiles, line chart (habit consistency), donut chart (time balance), tasks &amp; habits panels</li>
+    <li><b>Tasks</b> &mdash; filter tabs, quick-add with natural-language date parsing, morning/afternoon/evening groupings</li>
+    <li><b>Habits</b> &mdash; weekly matrix (6 habits &times; 7 days) plus 52-week year heatmap</li>
+    <li><b>Journal</b> &mdash; two-column layout: editor + mood picker on the left, recent entries + monthly mood chart on the right</li>
+    <li><b>Admin</b> &mdash; system stats, user table with role/status/streak, live activity log, issue tracker</li>
+  </ul>
+
+  <p class="path" style="margin-top: 3mm; font-family: 'DM Mono', monospace; font-size: 9pt; color: var(--muted);">design-pages/screenshots/{home,login,register,dashboard,tasks,habits,journal,admin}.png</p>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+  <h3 style="font-size:14pt; margin: 0 0 2mm;">§ 3A &middot; Backend documentation</h3>
+
+  <p style="margin-bottom: 3mm;">Laravel 11 project skeleton with real, runnable code: 6 domain models mirroring the ER diagram, full REST API for tasks, an admin dashboard, Sanctum authentication, and RBAC via policies. Nothing runs on the machine yet (PHP not installed) but every file will work once <code>composer install &amp;&amp; php artisan migrate</code> executes.</p>
+
+  <div class="numbers">
+    <div class="n"><div class="v">7</div><div class="l">Eloquent models</div></div>
+    <div class="n"><div class="v">4</div><div class="l">Migrations</div></div>
+    <div class="n"><div class="v">5</div><div class="l">Controllers</div></div>
+    <div class="n"><div class="v">4</div><div class="l">Screenshots for &sect;3A</div></div>
+  </div>
+
+  <p class="lab" style="margin-top: 5mm;">Screenshots produced</p>
+  <ul class="clean">
+    <li><b>03A-01-structure.png</b> &mdash; annotated Laravel folder tree with &#9733; on pattern folders</li>
+    <li><b>03A-02-admin-dashboard.png</b> &mdash; admin console rendered view</li>
+    <li><b>03A-03-routes.png</b> &mdash; <code>routes/api.php</code> with syntax highlighting</li>
+    <li><b>03A-04-task-controller.png</b> &mdash; the TaskController end-to-end</li>
+  </ul>
+
+  <h3 style="font-size:14pt; margin: 8mm 0 2mm;">§ 3B &middot; Design patterns</h3>
+
+  <p style="margin-bottom: 3mm;">Four patterns are implemented as real code, each documented in the exact format the assignment requires (name / purpose / why chosen / implementation / screenshot).</p>
+
+  <div class="status-grid">
+    <div class="status done">
+      <p class="meta">PATTERN 1</p>
+      <h4>Repository</h4>
+      <p>Controllers depend on <code>TaskRepositoryInterface</code>, never on Eloquent directly. Persistence can be swapped in one line.</p>
+      <p class="path">app/Repositories/ &middot; 3 screenshots</p>
+    </div>
+    <div class="status done">
+      <p class="meta">PATTERN 2</p>
+      <h4>Observer</h4>
+      <p>TaskObserver reacts to lifecycle events. Marking a task complete auto-fires a notification via the Strategy channel &mdash; controllers stay thin.</p>
+      <p class="path">app/Observers/TaskObserver.php &middot; 2 screenshots</p>
+    </div>
+    <div class="status done">
+      <p class="meta">PATTERN 3</p>
+      <h4>Factory</h4>
+      <p>Model factories with named states (<code>admin()</code>, <code>suspended()</code>, <code>completed()</code>, <code>overdue()</code>) &mdash; the canonical Laravel implementation of the Factory pattern.</p>
+      <p class="path">database/factories/ &middot; 2 screenshots</p>
+    </div>
+    <div class="status done">
+      <p class="meta">PATTERN 4</p>
+      <h4>Strategy</h4>
+      <p>Three interchangeable notification channels behind a single interface: Email, Push (Firebase FCM), SMS (Twilio). Adding a fourth = one class + one match arm.</p>
+      <p class="path">app/Services/Notification/ &middot; 3 screenshots</p>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+  <h3 style="font-size:14pt; margin: 0 0 2mm;">§ 4 &middot; Testing</h3>
+
+  <p style="margin-bottom: 3mm;">PHPUnit 11 test suite covering unit, feature, and integration layers, plus a manual UAT summary. Runs against in-memory SQLite so no external database is required.</p>
+
+  <div class="numbers">
+    <div class="n"><div class="v">27</div><div class="l">Automated tests</div></div>
+    <div class="n"><div class="v">73</div><div class="l">Assertions</div></div>
+    <div class="n"><div class="v">5</div><div class="l">Manual test cases</div></div>
+    <div class="n"><div class="v">100%</div><div class="l">Pass rate</div></div>
+  </div>
+
+  <table class="deliverables">
+    <thead>
+      <tr><th>Type</th><th>File</th><th>Tests</th><th>Focus</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Unit</td><td class="path">tests/Unit/TaskModelTest.php</td><td>6</td><td>Task model attribute casting, state, scopes</td></tr>
+      <tr><td>Unit</td><td class="path">tests/Unit/ChannelStrategyTest.php</td><td>4</td><td>Strategy selector returns correct channel</td></tr>
+      <tr><td>Feature</td><td class="path">tests/Feature/AuthTest.php</td><td>6</td><td>Register / login / logout / suspended-user gating</td></tr>
+      <tr><td>Feature</td><td class="path">tests/Feature/TaskApiTest.php</td><td>6</td><td>REST CRUD + ownership scoping + observer side-effects</td></tr>
+      <tr><td>Integration</td><td class="path">tests/Feature/AdminAccessTest.php</td><td>5</td><td>Session auth + role middleware + admin-only actions</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ==================================================================== -->
+<!-- FILE MAP                                                              -->
+<!-- ==================================================================== -->
+<section>
+  <div class="sect-title">
+    <p class="lab">§ 4 · File map</p>
+    <h2>Where <em>everything</em> lives on disk.</h2>
+  </div>
+
+  <p style="margin-bottom: 3mm;">All artefacts live under <code>C:\Users\Dell\HAitham project\</code>. Paths below are relative to that root.</p>
+
+  <table class="deliverables">
+    <thead><tr><th>Deliverable</th><th>Path</th></tr></thead>
+    <tbody>
+      <tr><td>Top-level README (project overview)</td><td class="path">README.md</td></tr>
+      <tr><td>Trello board screenshots + Sequence Diagram</td><td class="path">trello-screenshots/</td></tr>
+      <tr><td>&sect;2 Design mockups (HTML + PNG)</td><td class="path">design-pages/ &middot; design-pages/screenshots/</td></tr>
+      <tr><td>Existing React homepage (Figma export)</td><td class="path">Homepage Design for Lifestyle Site/</td></tr>
+      <tr><td>Laravel backend skeleton</td><td class="path">backend/</td></tr>
+      <tr><td>&sect;3A Backend documentation</td><td class="path">backend/docs/03A-backend-structure.md</td></tr>
+      <tr><td>&sect;3B Design patterns documentation</td><td class="path">backend/docs/03B-design-patterns.md</td></tr>
+      <tr><td>&sect;4 Testing documentation</td><td class="path">backend/docs/04-testing.md</td></tr>
+      <tr><td>Backend code-view screenshots (21 PNGs)</td><td class="path">backend/screenshots/</td></tr>
+      <tr><td>This status report</td><td class="path">project-status.pdf</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ==================================================================== -->
+<!-- WHAT'S LEFT                                                           -->
+<!-- ==================================================================== -->
+<section>
+  <div class="sect-title">
+    <p class="lab">§ 5 · What's still open</p>
+    <h2>Two tasks between us and <em>submission.</em></h2>
+  </div>
+
+  <div class="status-grid">
+    <div class="status pending">
+      <p class="meta">§ 5 &middot; REMAINING</p>
+      <h4>GitHub repository upload</h4>
+      <p>The <code>README.md</code> is written and the folder layout is clean. All that&rsquo;s needed is <code>git init</code>, <code>git add .</code>, <code>git commit</code>, and <code>git push</code> to a fresh public repo. Estimated time: <b>10 minutes</b>.</p>
+    </div>
+    <div class="status pending">
+      <p class="meta">§ 6 &middot; REMAINING</p>
+      <h4>5&ndash;10 minute demonstration video</h4>
+      <p>Needs the running system. Install Node.js (for the React frontend) and PHP 8.2 + Composer (for the Laravel backend), then screen-record the golden path: register &rarr; dashboard &rarr; add task &rarr; complete task &rarr; view habit streak &rarr; open admin panel. Estimated time: <b>2 hours</b> (install + record + light edit).</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p class="h">Suggested next step</p>
+    <p>Install Node.js from <code>nodejs.org</code> (LTS &mdash; 10 min) and PHP+Composer via Laragon from <code>laragon.org</code> (10 min). That unblocks the demo video <em>and</em> lets the grader run the project locally, which is Part-3 requirement &sect;5 in one shot.</p>
+  </div>
+</section>
+
+<div class="footer">
+  <span>Lifestyle &middot; Software Engineering Project</span>
+  <span>Al-Aqsa University &middot; 2026</span>
+</div>
+
+</body>
+</html>

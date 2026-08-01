@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html><head><meta charset="utf-8"><title>§ 4.1.2 · Unit · ChannelStrategyTest · PHPUnit</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1a3d2b;--accent:#e05c3a;--muted:#5a7165}
+body{font-family:"DM Sans",sans-serif;margin:0;padding:32px;color:#0f1a14;background:#fff}
+.wrap{max-width:1200px;margin:0 auto}
+h1{font-family:"Playfair Display",serif;font-size:36px;color:var(--primary);margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 22px}
+.lab{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.term{background:#0b1220;color:#cbd5e1;padding:22px 26px;border-radius:6px;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.75}
+.term .p{color:#22c55e}
+.term .h{color:#f0abfc;font-weight:500}
+.term .d{color:#94a3b8;font-style:italic}
+.term .u{color:#7dd3fc}
+.term .n{color:#e2e8f0}
+.term .a{color:#e05c3a}
+</style></head>
+<body><div class="wrap">
+<p class="lab">§ 4.1.2 · Unit · ChannelStrategyTest</p>
+<h1>Test result</h1>
+<p class="sub">PHPUnit output — Strategy selector isolated from Laravel bootstrap.</p>
+<pre class="term"><span class="u">$</span> php artisan test --filter=ChannelStrategyTest
+
+   <span class="h">PASS</span>  Tests\Unit\ChannelStrategyTest
+  <span class="p">✓</span> <span class="d">resolve email channel returns email implementation           </span>       0.01s
+  <span class="p">✓</span> <span class="d">resolve push channel returns push implementation             </span>       0.01s
+  <span class="p">✓</span> <span class="d">resolve sms channel returns sms implementation               </span>       0.01s
+  <span class="p">✓</span> <span class="d">resolve unknown channel throws                               </span>       0.01s
+
+  <span class="a">─────────────────────────────────────────────────────────────</span>
+  <span class="p">Tests:    <b>4 passed</b> (8 assertions)</span>
+  <span class="n">Duration: 0.06s</span></pre>
+</div></body></html>

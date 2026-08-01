@@ -1,0 +1,29 @@
+نسخة Lifestyle النهائية — الواجهات الأصلية محفوظة
+
+هذه النسخة تجمع Laravel API مع الواجهات الأصلية المرفقة في المشروع:
+- الصفحة الرئيسية الأصلية
+- تسجيل الدخول والتسجيل الأصليان
+- تصميم Dashboard / Tasks / Habits / Journal / Admin بنفس الهوية الأصلية
+- صفحات Mood / Notifications / Profile بنفس نظام التصميم
+
+التشغيل:
+1) فك ضغط ZIP داخل مجلد جديد مثل:
+   C:\Projects\Lifestyle-Original-UI-Final
+2) افتح المجلد وتأكد أن ملف artisan ظاهر مباشرة بجانب START-LIFESTYLE.bat.
+3) شغّل START-LIFESTYLE.bat.
+4) اترك نافذة السيرفر مفتوحة.
+5) يفتح المشروع على http://127.0.0.1:8001 أو 8002.
+
+الحسابات التجريبية:
+User:  user@lifestyle.test
+Pass:  Password123!
+
+Admin: admin@lifestyle.test
+Pass:  Admin123!
+
+مهم:
+- لا تشغّل أي Controller منفردًا من زر Run Code في VS Code.
+- ملف artisan يجب أن يكون في المجلد الحالي عند تنفيذ php artisan.
+- لا يحتاج المشروع إلى npm run dev.
+- التصميم الأصلي يستخدم Google Fonts وTailwind Play CDN، لذلك يلزم اتصال إنترنت لظهور الخطوط والتنسيق الأصلي بالكامل.
+- ملف SHA-256 للتحقق من سلامة ZIP فقط، وليس للتشغيل.

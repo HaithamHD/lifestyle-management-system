@@ -1,0 +1,6 @@
+Lifestyle Management System — Original UI Final Edition
+
+Backend: Laravel 12 + Sanctum + SQLite demo database
+Frontend: Original supplied Lifestyle interfaces, connected to the API
+Start: START-LIFESTYLE.bat
+Default URL: http://127.0.0.1:8001

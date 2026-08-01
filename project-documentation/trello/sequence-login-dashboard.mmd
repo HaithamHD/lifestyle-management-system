@@ -1,0 +1,53 @@
+sequenceDiagram
+    actor User
+    participant Browser
+    participant FE as Frontend (HTML/CSS/JS)
+    participant API as REST API
+    participant Auth as AuthController (Laravel)
+    participant Dash as DashboardController (Laravel)
+    participant UM as UserModel
+    participant TM as TaskModel
+    participant HM as HabitModel
+    participant DB as MySQL Database
+
+    User->>Browser: Enter email and password
+    Browser->>FE: Submit login form
+    FE->>API: POST /api/login {email, password}
+    API->>Auth: login(request)
+    Auth->>UM: findByEmail(email)
+    UM->>DB: SELECT * FROM users WHERE email = ?
+    DB-->>UM: user record
+    UM-->>Auth: user
+    Auth->>Auth: verify password hash
+    alt credentials invalid
+        Auth-->>API: 401 Unauthorized
+        API-->>FE: error
+        FE-->>Browser: show error message
+    else credentials valid
+        Auth->>Auth: generate JWT token
+        Auth-->>API: 200 OK {token, user}
+        API-->>FE: {token, user}
+        FE->>Browser: store token in localStorage
+        FE->>Browser: redirect to /dashboard
+    end
+
+    Note over FE,DB: Dashboard load
+
+    Browser->>FE: GET /dashboard
+    FE->>API: GET /api/dashboard (Bearer token)
+    API->>Dash: index(request)
+    Dash->>Dash: validate JWT
+    Dash->>TM: getUserTasks(user_id)
+    TM->>DB: SELECT * FROM tasks WHERE user_id = ?
+    DB-->>TM: task rows
+    TM-->>Dash: tasks[]
+    Dash->>HM: getUserHabits(user_id)
+    HM->>DB: SELECT * FROM habits WHERE user_id = ?
+    DB-->>HM: habit rows
+    HM-->>Dash: habits[]
+    Dash->>Dash: aggregate statistics
+    Dash-->>API: 200 OK {tasks, habits, stats}
+    API-->>FE: dashboard data
+    FE->>FE: render charts
+    FE-->>Browser: display dashboard
+    Browser-->>User: view dashboard

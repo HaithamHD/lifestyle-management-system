@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import pypdf; print\\('pypdf ok'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -c \"import pypdf; print\\('ok'\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(ls -d \"C:/Users/Dell/Desktop\"/* \"C:/Users/Dell/Documents\"/* 2>/dev/null | head -40)",
+      "Bash(find \"C:/Users/Dell/Desktop\" \"C:/Users/Dell/Documents\" \"C:/Users/Dell/Downloads\" -maxdepth 3 -name \"artisan\" -o -maxdepth 3 -name \"composer.json\" -o -maxdepth 3 -name \"package.json\" 2>/dev/null | head -20)",
+      "mcp__claude-in-chrome__list_connected_browsers",
+      "mcp__claude-in-chrome__switch_browser",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__browser_batch",
+      "mcp__claude-in-chrome__javascript_tool",
+      "mcp__claude-in-chrome__computer",
+      "mcp__claude-in-chrome__find",
+      "Bash(npm --version)",
+      "PowerShell(node --version 2>&1)",
+      "PowerShell(npm --version 2>&1)",
+      "Bash(python -m http.server 8765)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8765/login.html)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8765/login.html)",
+      "PowerShell(& \"C:\\\\Users\\\\Dell\\\\HAitham project\\\\backend\\\\code-views\\\\generate-and-capture.ps1\")"
+    ]
+  }
+}

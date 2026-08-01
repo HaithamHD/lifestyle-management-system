@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html><head><meta charset="utf-8"><title>Manual Tests Summary</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#1a3d2b;--accent:#e05c3a;--muted:#5a7165;--border:rgba(26,61,43,.12)}
+body{font-family:"DM Sans",sans-serif;margin:0;padding:32px;color:#0f1a14;background:#fff}
+.wrap{max-width:1280px;margin:0 auto}
+h1{font-family:"Playfair Display",serif;font-size:40px;color:var(--primary);margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 28px}
+.lab{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin-top:18px}
+th{text-align:left;background:#f7f9f7;padding:14px 16px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--primary)}
+td{padding:18px 16px;border-bottom:1px solid var(--border);vertical-align:top;font-size:14px;line-height:1.55}
+td.pass{color:#0f7040;font-weight:600;font-family:"DM Mono",monospace}
+.pill{display:inline-block;padding:3px 9px;background:#eaf2ec;border-radius:3px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em}
+</style></head>
+<body><div class="wrap">
+<p class="lab">§ 4.4 · Manual Testing</p>
+<h1>Manual test results</h1>
+<p class="sub">Executed manually against a running Laravel instance during development. Complements the 27 automated tests in §4.1–4.3.</p>
+<table>
+<thead><tr><th>Test</th><th>Objective</th><th>Method</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><b>Registration → dashboard flow</b><br><span class="pill">HAPPY PATH</span></td><td>Confirm a new user reaches a populated dashboard within one session.</td><td>Open frontend, register with a fresh email, verify redirect to <code>/dashboard</code>, confirm empty-state cards render.</td><td class="pass">✓ PASS</td></tr>
+<tr><td><b>Task quick-add · NL date parsing</b><br><span class="pill">FEATURE</span></td><td>Verify "Team standup tomorrow at 10:30" produces a task with the correct <code>due_date</code>.</td><td>Type the string into the quick-add on the Tasks page; submit; inspect the created card.</td><td class="pass">✓ PASS</td></tr>
+<tr><td><b>Habit streak recovery</b><br><span class="pill">EDGE CASE</span></td><td>Confirm streak counter recovers correctly after a missed day.</td><td>Tick a daily habit 5 days, skip 1, tick again; confirm <code>current_streak = 1</code>.</td><td class="pass">✓ PASS</td></tr>
+<tr><td><b>Suspended account flow</b><br><span class="pill">SECURITY</span></td><td>Suspended user cannot log in via API and existing tokens are revoked.</td><td>Admin suspends test user → try API login → try <code>/api/me</code> with old token.</td><td class="pass">✓ PASS<br><small>422 on login · 401 on /me</small></td></tr>
+<tr><td><b>Responsive layout</b><br><span class="pill">UI</span></td><td>Sidebar collapses cleanly on ≤ 768 px, dashboard cards stack.</td><td>Chrome DevTools device toolbar — iPhone 14 Pro / Pixel 7.</td><td class="pass">✓ PASS</td></tr>
+</tbody></table>
+</div></body></html>

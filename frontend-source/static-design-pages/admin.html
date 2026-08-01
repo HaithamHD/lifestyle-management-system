@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Admin · Lifestyle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: {
+    background: "#ffffff", foreground: "#0f1a14", card: "#f7f9f7",
+    primary: { DEFAULT: "#1a3d2b", dark: "#14301f", foreground: "#ffffff" },
+    secondary: "#eaf2ec",
+    muted: { DEFAULT: "#f0f4f1", foreground: "#5a7165" },
+    accent: { DEFAULT: "#e05c3a", foreground: "#ffffff" },
+    border: "rgba(26, 61, 43, 0.12)",
+    destructive: "#c0392b",
+  },
+  fontFamily: {
+    display: ['"Playfair Display"', "serif"],
+    sans: ['"DM Sans"', "sans-serif"],
+    mono: ['"DM Mono"', "monospace"],
+  },
+} } };
+</script>
+<style> body { font-family: "DM Sans", sans-serif; color: #0f1a14; } </style>
+</head>
+<body class="min-h-screen bg-background">
+
+<div class="min-h-screen flex">
+
+  <!-- SIDEBAR (admin variant with red-tinted logo badge) -->
+  <aside class="w-[260px] shrink-0 bg-primary text-white flex flex-col">
+    <div class="px-6 py-6 border-b border-white/10">
+      <a href="./home.html" class="flex items-center gap-2">
+        <span class="w-7 h-7 bg-accent rounded-sm flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-4 h-4"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+        </span>
+        <div class="flex flex-col">
+          <span class="font-display font-semibold text-xl text-white tracking-tight leading-none">Lifestyle</span>
+          <span class="text-[9px] font-mono uppercase tracking-widest text-accent mt-0.5">Admin Console</span>
+        </div>
+      </a>
+    </div>
+    <nav class="flex-1 px-3 py-4 flex flex-col gap-6 overflow-y-auto">
+      <div>
+        <p class="px-3 mb-2 text-[10px] font-mono uppercase tracking-widest text-white/40">Main</p>
+        <div class="flex flex-col gap-0.5">
+          <a href="./dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-sm text-white/70 hover:bg-white/5 hover:text-white text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Dashboard
+          </a>
+          <a href="./tasks.html" class="flex items-center justify-between px-3 py-2.5 rounded-sm text-white/70 hover:bg-white/5 hover:text-white text-sm">
+            <span class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+              Tasks
+            </span>
+          </a>
+          <a href="./habits.html" class="flex items-center gap-3 px-3 py-2.5 rounded-sm text-white/70 hover:bg-white/5 hover:text-white text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            Habits
+          </a>
+          <a href="./journal.html" class="flex items-center gap-3 px-3 py-2.5 rounded-sm text-white/70 hover:bg-white/5 hover:text-white text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+            Journal
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="px-3 mb-2 text-[10px] font-mono uppercase tracking-widest text-accent">Admin</p>
+        <div class="flex flex-col gap-0.5">
+          <a href="./admin.html" class="flex items-center justify-between px-3 py-2.5 rounded-sm bg-white/10 text-white text-sm font-medium">
+            <span class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Users
+            </span>
+            <span class="text-[10px] font-mono bg-accent px-1.5 py-0.5 rounded-sm">1.2M</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-sm text-white/70 hover:bg-white/5 hover:text-white text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            System health
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-sm text-white/70 hover:bg-white/5 hover:text-white text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Reports
+          </a>
+          <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-sm text-white/70 hover:bg-white/5 hover:text-white text-sm">
+            <span class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Issues
+            </span>
+            <span class="text-[10px] font-mono bg-destructive/80 px-1.5 py-0.5 rounded-sm">3</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-sm text-white/70 hover:bg-white/5 hover:text-white text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10">
+      <div class="flex items-center gap-3 p-2 rounded-sm hover:bg-white/5 cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&auto=format"
+             alt="user" class="w-9 h-9 rounded-full object-cover border border-accent" />
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-medium text-white truncate">Mahmoud Khader</p>
+          <p class="text-xs text-accent truncate">System Administrator</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-1 min-w-0 flex flex-col">
+    <header class="border-b border-border px-8 h-16 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-3">
+        <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Admin Console · Users</p>
+        <span class="text-[10px] font-mono bg-accent/10 text-accent px-2 py-0.5 rounded-sm">ELEVATED</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search users, tickets, logs…"
+            class="bg-muted rounded-sm pl-9 pr-4 py-2 w-80 text-sm outline-none border border-transparent focus:border-primary/40" />
+        </div>
+        <button class="w-9 h-9 rounded-sm border border-border hover:border-primary/40 flex items-center justify-center relative">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="w-4 h-4"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-destructive"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="flex-1 overflow-y-auto p-8 space-y-8">
+      <!-- Hero -->
+      <section>
+        <p class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">User management</p>
+        <h1 class="font-display text-4xl lg:text-5xl font-bold text-primary leading-tight">
+          The <em class="italic font-normal text-accent">whole community,</em> at a glance.
+        </h1>
+      </section>
+
+      <!-- System stat tiles -->
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="border border-border rounded-sm p-5">
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Total users</p>
+            <span class="text-[10px] font-mono text-primary">+2.4 %</span>
+          </div>
+          <p class="font-display text-4xl font-bold text-primary">1,204,873</p>
+          <p class="text-xs text-muted-foreground mt-2">28,412 new this month</p>
+        </div>
+        <div class="border border-border rounded-sm p-5">
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Active today</p>
+            <span class="text-[10px] font-mono text-primary">Live</span>
+          </div>
+          <p class="font-display text-4xl font-bold text-primary">312,908</p>
+          <p class="text-xs text-muted-foreground mt-2">26 % DAU / MAU</p>
+        </div>
+        <div class="border border-border rounded-sm p-5 bg-primary text-white">
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-[10px] font-mono uppercase tracking-widest text-white/60">System uptime</p>
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          </div>
+          <p class="font-display text-4xl font-bold">99.98<span class="text-xl text-white/60">%</span></p>
+          <p class="text-xs text-white/60 mt-2">30-day rolling · SLO 99.9 %</p>
+        </div>
+        <div class="border border-border rounded-sm p-5">
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Open issues</p>
+            <span class="text-[10px] font-mono text-destructive">3 critical</span>
+          </div>
+          <p class="font-display text-4xl font-bold text-primary">17</p>
+          <p class="text-xs text-muted-foreground mt-2">Avg resolution 4 h 12 m</p>
+        </div>
+      </section>
+
+      <!-- Users table -->
+      <section class="border border-border rounded-sm">
+        <div class="px-6 py-5 flex items-center justify-between border-b border-border flex-wrap gap-3">
+          <div>
+            <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-1">Recent registrations</p>
+            <h3 class="font-display text-xl font-semibold text-primary">Users</h3>
+          </div>
+          <div class="flex items-center gap-2">
+            <select class="text-xs font-mono text-muted-foreground border border-border rounded-sm px-3 py-2 bg-white outline-none focus:border-primary/40">
+              <option>All roles</option><option>Members</option><option>Admins</option>
+            </select>
+            <select class="text-xs font-mono text-muted-foreground border border-border rounded-sm px-3 py-2 bg-white outline-none focus:border-primary/40">
+              <option>Any status</option><option>Active</option><option>Suspended</option>
+            </select>
+            <button class="inline-flex items-center gap-2 bg-primary text-white text-sm font-medium px-4 py-2 rounded-sm hover:bg-primary-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M12 5v14M5 12h14"/></svg>
+              Invite user
+            </button>
+          </div>
+        </div>
+
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left px-6 py-3 text-[10px] font-mono uppercase tracking-widest text-muted-foreground font-normal">User</th>
+              <th class="text-left px-4 py-3 text-[10px] font-mono uppercase tracking-widest text-muted-foreground font-normal">Role</th>
+              <th class="text-left px-4 py-3 text-[10px] font-mono uppercase tracking-widest text-muted-foreground font-normal">Streak</th>
+              <th class="text-left px-4 py-3 text-[10px] font-mono uppercase tracking-widest text-muted-foreground font-normal">Joined</th>
+              <th class="text-left px-4 py-3 text-[10px] font-mono uppercase tracking-widest text-muted-foreground font-normal">Status</th>
+              <th class="text-right px-6 py-3 text-[10px] font-mono uppercase tracking-widest text-muted-foreground font-normal">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border hover:bg-muted/40">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616b612b830?w=60&h=60&fit=crop&auto=format" class="w-9 h-9 rounded-full object-cover" alt=""/>
+                  <div>
+                    <p class="font-medium text-foreground">Sara Al-Mahmoud</p>
+                    <p class="text-xs text-muted-foreground font-mono">sara.mahmoud@lifestyle.com</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4"><span class="text-[10px] font-mono px-2 py-0.5 rounded-sm bg-muted">MEMBER</span></td>
+              <td class="px-4 font-mono text-accent">🔥 68d</td>
+              <td class="px-4 text-muted-foreground text-xs font-mono">14 Apr 2024</td>
+              <td class="px-4"><span class="inline-flex items-center gap-1.5 text-xs"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Active</span></td>
+              <td class="px-6 text-right">
+                <button class="w-8 h-8 rounded-sm hover:bg-muted inline-flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-muted-foreground"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="border-b border-border hover:bg-muted/40">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&h=60&fit=crop&auto=format" class="w-9 h-9 rounded-full object-cover" alt=""/>
+                  <div>
+                    <p class="font-medium text-foreground">Karim Nasser</p>
+                    <p class="text-xs text-muted-foreground font-mono">karim.n@lifestyle.com</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4"><span class="text-[10px] font-mono px-2 py-0.5 rounded-sm bg-muted">MEMBER</span></td>
+              <td class="px-4 font-mono text-muted-foreground">🔥 21d</td>
+              <td class="px-4 text-muted-foreground text-xs font-mono">02 Jun 2025</td>
+              <td class="px-4"><span class="inline-flex items-center gap-1.5 text-xs"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Active</span></td>
+              <td class="px-6 text-right">
+                <button class="w-8 h-8 rounded-sm hover:bg-muted inline-flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-muted-foreground"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="border-b border-border hover:bg-muted/40">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=60&h=60&fit=crop&auto=format" class="w-9 h-9 rounded-full object-cover" alt=""/>
+                  <div>
+                    <p class="font-medium text-foreground">Layla Haddad</p>
+                    <p class="text-xs text-muted-foreground font-mono">layla.haddad@lifestyle.com</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4"><span class="text-[10px] font-mono px-2 py-0.5 rounded-sm bg-accent/10 text-accent">MODERATOR</span></td>
+              <td class="px-4 font-mono text-muted-foreground">🔥 42d</td>
+              <td class="px-4 text-muted-foreground text-xs font-mono">08 Jan 2023</td>
+              <td class="px-4"><span class="inline-flex items-center gap-1.5 text-xs"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Active</span></td>
+              <td class="px-6 text-right">
+                <button class="w-8 h-8 rounded-sm hover:bg-muted inline-flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-muted-foreground"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="border-b border-border hover:bg-muted/40">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&h=60&fit=crop&auto=format" class="w-9 h-9 rounded-full object-cover" alt=""/>
+                  <div>
+                    <p class="font-medium text-foreground">Omar Faris</p>
+                    <p class="text-xs text-muted-foreground font-mono">omar.faris@lifestyle.com</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4"><span class="text-[10px] font-mono px-2 py-0.5 rounded-sm bg-muted">MEMBER</span></td>
+              <td class="px-4 font-mono text-muted-foreground">— none</td>
+              <td class="px-4 text-muted-foreground text-xs font-mono">27 Jul 2026</td>
+              <td class="px-4"><span class="inline-flex items-center gap-1.5 text-xs"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Pending</span></td>
+              <td class="px-6 text-right">
+                <button class="w-8 h-8 rounded-sm hover:bg-muted inline-flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-muted-foreground"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="border-b border-border hover:bg-muted/40">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&auto=format" class="w-9 h-9 rounded-full object-cover" alt=""/>
+                  <div>
+                    <p class="font-medium text-foreground">Nour Bishara</p>
+                    <p class="text-xs text-muted-foreground font-mono">n.bishara@lifestyle.com</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4"><span class="text-[10px] font-mono px-2 py-0.5 rounded-sm bg-muted">MEMBER</span></td>
+              <td class="px-4 font-mono text-muted-foreground">🔥 9d</td>
+              <td class="px-4 text-muted-foreground text-xs font-mono">03 Feb 2025</td>
+              <td class="px-4"><span class="inline-flex items-center gap-1.5 text-xs"><span class="w-1.5 h-1.5 rounded-full bg-destructive"></span>Suspended</span></td>
+              <td class="px-6 text-right">
+                <button class="w-8 h-8 rounded-sm hover:bg-muted inline-flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-muted-foreground"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-muted/40">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop&auto=format" class="w-9 h-9 rounded-full object-cover" alt=""/>
+                  <div>
+                    <p class="font-medium text-foreground">Rami El-Khoury</p>
+                    <p class="text-xs text-muted-foreground font-mono">rami.k@lifestyle.com</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4"><span class="text-[10px] font-mono px-2 py-0.5 rounded-sm bg-primary/10 text-primary">ADMIN</span></td>
+              <td class="px-4 font-mono text-muted-foreground">🔥 156d</td>
+              <td class="px-4 text-muted-foreground text-xs font-mono">18 Nov 2021</td>
+              <td class="px-4"><span class="inline-flex items-center gap-1.5 text-xs"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Active</span></td>
+              <td class="px-6 text-right">
+                <button class="w-8 h-8 rounded-sm hover:bg-muted inline-flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-muted-foreground"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="px-6 py-4 flex items-center justify-between border-t border-border">
+          <p class="text-xs text-muted-foreground">Showing 6 of 1,204,873 users</p>
+          <div class="flex items-center gap-1">
+            <button class="w-8 h-8 rounded-sm border border-border text-xs text-muted-foreground hover:bg-muted">‹</button>
+            <button class="w-8 h-8 rounded-sm bg-primary text-white text-xs font-medium">1</button>
+            <button class="w-8 h-8 rounded-sm border border-border text-xs text-muted-foreground hover:bg-muted">2</button>
+            <button class="w-8 h-8 rounded-sm border border-border text-xs text-muted-foreground hover:bg-muted">3</button>
+            <span class="px-2 text-xs text-muted-foreground">…</span>
+            <button class="w-8 h-8 rounded-sm border border-border text-xs text-muted-foreground hover:bg-muted">200k</button>
+            <button class="w-8 h-8 rounded-sm border border-border text-xs text-muted-foreground hover:bg-muted">›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Activity + issues row -->
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="border border-border rounded-sm p-6">
+          <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-1">Live activity</p>
+          <h3 class="font-display text-xl font-semibold text-primary mb-4">System log</h3>
+          <ul class="flex flex-col gap-3 text-sm">
+            <li class="flex items-start gap-3 pb-3 border-b border-border">
+              <span class="w-2 h-2 rounded-full bg-green-500 mt-2 shrink-0"></span>
+              <div class="flex-1"><p><span class="font-medium">Sara Al-Mahmoud</span> completed onboarding survey.</p><p class="text-[10px] font-mono text-muted-foreground mt-0.5">2 SECONDS AGO</p></div>
+            </li>
+            <li class="flex items-start gap-3 pb-3 border-b border-border">
+              <span class="w-2 h-2 rounded-full bg-primary mt-2 shrink-0"></span>
+              <div class="flex-1"><p>Nightly database backup completed successfully.</p><p class="text-[10px] font-mono text-muted-foreground mt-0.5">1 MIN AGO · 2.4 GB</p></div>
+            </li>
+            <li class="flex items-start gap-3 pb-3 border-b border-border">
+              <span class="w-2 h-2 rounded-full bg-accent mt-2 shrink-0"></span>
+              <div class="flex-1"><p><span class="font-medium">Omar Faris</span> requested account activation.</p><p class="text-[10px] font-mono text-muted-foreground mt-0.5">4 MIN AGO</p></div>
+            </li>
+            <li class="flex items-start gap-3 pb-3 border-b border-border">
+              <span class="w-2 h-2 rounded-full bg-destructive mt-2 shrink-0"></span>
+              <div class="flex-1"><p>API latency spike — <code class="font-mono text-xs bg-muted px-1.5 py-0.5 rounded-sm">/api/dashboard</code> exceeded 400 ms.</p><p class="text-[10px] font-mono text-muted-foreground mt-0.5">6 MIN AGO · auto-resolved</p></div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-green-500 mt-2 shrink-0"></span>
+              <div class="flex-1"><p>New content pack "Sleep &amp; Recovery Basics" published.</p><p class="text-[10px] font-mono text-muted-foreground mt-0.5">18 MIN AGO · by Layla</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="border border-border rounded-sm p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-1">Requires attention</p>
+              <h3 class="font-display text-xl font-semibold text-primary">Reported issues</h3>
+            </div>
+            <span class="text-[10px] font-mono bg-destructive/10 text-destructive px-2 py-1 rounded-sm">3 CRITICAL</span>
+          </div>
+          <ul class="flex flex-col gap-3">
+            <li class="p-4 border border-destructive/30 bg-destructive/[0.03] rounded-sm">
+              <div class="flex items-center justify-between mb-1.5">
+                <p class="text-sm font-medium">Password reset emails delayed</p>
+                <span class="text-[10px] font-mono bg-destructive text-white px-2 py-0.5 rounded-sm">CRITICAL</span>
+              </div>
+              <p class="text-xs text-muted-foreground">Reported by 47 users · SMTP queue backing up · #INC-8842</p>
+            </li>
+            <li class="p-4 border border-border rounded-sm">
+              <div class="flex items-center justify-between mb-1.5">
+                <p class="text-sm font-medium">Dashboard chart mislabeled on Firefox</p>
+                <span class="text-[10px] font-mono bg-muted px-2 py-0.5 rounded-sm">LOW</span>
+              </div>
+              <p class="text-xs text-muted-foreground">3 reports · legend order swapped · #INC-8830</p>
+            </li>
+            <li class="p-4 border border-border rounded-sm">
+              <div class="flex items-center justify-between mb-1.5">
+                <p class="text-sm font-medium">Habit reminder push fires twice</p>
+                <span class="text-[10px] font-mono bg-accent/20 text-accent px-2 py-0.5 rounded-sm">HIGH</span>
+              </div>
+              <p class="text-xs text-muted-foreground">14 reports · notification service double-emit · #INC-8827</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</body>
+</html>
