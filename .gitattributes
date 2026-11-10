@@ -9,3 +9,7 @@
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+# Exclude docs and design sources from language statistics
+code-views/** linguist-documentation
+project-documentation/** linguist-documentation
+frontend-source/** linguist-documentation
