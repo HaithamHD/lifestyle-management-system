@@ -1,7 +1,8 @@
 ﻿# Generates all code-view HTML pages and captures them as PNG screenshots.
 # Usage: pwsh generate-and-capture.ps1
 
-$backend  = "C:\Users\Dell\HAitham project\backend"
+# Repository root = parent folder of this script (code-views/)
+$backend  = Split-Path -Parent $PSScriptRoot
 $views    = Join-Path $backend "code-views"
 $shots    = Join-Path $backend "screenshots"
 $template = Get-Content (Join-Path $views "_template.html") -Raw -Encoding UTF8
@@ -506,7 +507,7 @@ foreach ($p in $pages) {
 }
 
 # Copy admin dashboard PNG from design-pages
-$srcAdmin = "C:\Users\Dell\HAitham project\design-pages\screenshots\admin.png"
+$srcAdmin = Join-Path $backend "frontend-source\static-design-pages\screenshots\admin.png"
 $dstAdmin = Join-Path $shots "03A-02-admin-dashboard.png"
 if (Test-Path $srcAdmin) {
   Copy-Item $srcAdmin $dstAdmin -Force
