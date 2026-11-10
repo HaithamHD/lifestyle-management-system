@@ -212,10 +212,10 @@ code-views/             Script that generates the code-view screenshots
 
 | Name |
 |---|
-| **Haitham Dalloul** — هيثم دلول |
-| **Mahmoud Khader** — محمود خضر |
+| **Haitham Dalloul**|
+| **Mahmoud Khader**  |
 
 ## 🎓 Course
 
-**Software Engineering** (هندسة البرمجيات) — Dr. Firas Al-Ajla (د. فراس العجلة)
-**Al-Aqsa University** (جامعة الأقصى)
+**Software Engineering**  — Dr. Firas Al-Ajla 
+**Al-Aqsa University** 
